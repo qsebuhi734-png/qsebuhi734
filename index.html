@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kombi Ustası Bakı | Sabir Süleymanov</title>
+<style>
+  :root{
+    --green-dark:#0f3d24;
+    --green:#1c6b3c;
+    --green-mid:#238a4b;
+    --green-light:#2fa85c;
+    --green-pale:#e9f6ee;
+    --ink:#16221a;
+    --paper:#ffffff;
+    --grey:#f4f7f5;
+    --muted:#5b6b60;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.5;
+  }
+  img,svg{display:block;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+
+  /* Top bar */
+  .topbar{background:var(--green-dark);color:#cfe9d8;font-size:13px;}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;flex-wrap:wrap;gap:6px;}
+  .topbar span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
+
+  /* Header */
+  header.site{background:var(--paper);border-bottom:1px solid #eee;position:sticky;top:0;z-index:20;}
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:.3px;}
+  .logo small{display:block;font-weight:500;font-size:11.5px;color:var(--muted);letter-spacing:.2px;}
+  .logo .mark{width:34px;height:34px;color:var(--green-mid);}
+  nav.main{display:flex;gap:28px;font-size:15px;font-weight:600;color:#33473c;}
+  nav.main a.active{color:var(--green-mid);}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:8px;font-weight:700;font-size:14.5px;}
+  .btn-solid{background:var(--green-mid);color:#fff;}
+  .btn-outline{background:transparent;border:1.5px solid #cfe0d5;color:var(--ink);}
+  .btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff;}
+
+  /* Hero */
+  .hero{background:linear-gradient(120deg,var(--green-dark) 0%,var(--green) 55%,var(--green-mid) 100%);color:#fff;padding:64px 0 0;overflow:hidden;}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;}
+  .eyebrow{display:inline-block;background:rgba(255,255,255,.14);color:#bdf0d1;font-size:12.5px;font-weight:700;letter-spacing:.4px;padding:6px 12px;border-radius:20px;margin-bottom:18px;}
+  .hero h1{font-size:44px;line-height:1.12;font-weight:800;margin-bottom:16px;}
+  .hero h1 .accent{color:#7be6a4;}
+  .hero p{font-size:16px;color:#dcf0e2;max-width:460px;margin-bottom:26px;}
+  .hero .actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
+  .hero-visual{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:radial-gradient(circle at 30% 20%,#2fa85c 0%,#0f3d24 75%);display:flex;align-items:center;justify-content:center;}
+  .hero-visual svg{width:62%;height:62%;color:rgba(255,255,255,.92);}
+  .hero-visual::after{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.15);border-radius:16px;}
+
+  .feature-strip{background:var(--green-dark);border-top:1px solid rgba(255,255,255,.12);}
+  .feature-strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:22px 24px;}
+  .feature-item{display:flex;align-items:center;gap:12px;color:#fff;}
+  .feature-item svg{width:26px;height:26px;color:#7be6a4;flex-shrink:0;}
+  .feature-item b{display:block;font-size:14.5px;}
+  .feature-item span{font-size:12.5px;color:#bcd9c6;}
+
+  /* Sections */
+  section{padding:64px 0;}
+  .section-head{text-align:center;max-width:560px;margin:0 auto 40px;}
+  .section-head .eyebrow{background:var(--green-pale);color:var(--green-mid);}
+  .section-head h2{font-size:30px;font-weight:800;margin-top:10px;position:relative;display:inline-block;}
+  .section-head h2::after{content:"";display:block;width:52px;height:3px;background:var(--green-mid);margin:14px auto 0;border-radius:2px;}
+
+  .services{background:var(--grey);}
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .card{background:var(--paper);border-radius:12px;overflow:hidden;border:1px solid #eef1ee;}
+  .card .icon-plate{height:150px;background:linear-gradient(135deg,#eaf6ee,#d6f0dd);display:flex;align-items:center;justify-content:center;}
+  .card .icon-plate svg{width:56px;height:56px;color:var(--green-mid);}
+  .card-body{padding:20px 22px 26px;}
+  .card-body .num{width:44px;height:44px;border-radius:50%;background:var(--green-mid);color:#fff;display:flex;align-items:center;justify-content:center;margin-top:-42px;margin-bottom:14px;position:relative;z-index:1;}
+  .card-body .num svg{width:22px;height:22px;}
+  .card-body h3{font-size:18px;font-weight:800;margin-bottom:8px;}
+  .card-body p{font-size:14px;color:var(--muted);}
+  .center-btn{text-align:center;margin-top:34px;}
+
+  .guarantee{background:var(--green-dark);color:#fff;}
+  .guarantee .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .g-item{text-align:center;}
+  .g-item svg{width:34px;height:34px;color:#7be6a4;margin:0 auto 12px;}
+  .g-item b{display:block;font-size:15px;margin-bottom:4px;}
+  .g-item span{font-size:12.5px;color:#bcd9c6;}
+
+  .about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;}
+  .about-visual{border-radius:14px;aspect-ratio:4/3;background:linear-gradient(135deg,#0f3d24,#1c6b3c);display:flex;align-items:center;justify-content:center;}
+  .about-visual svg{width:46%;height:46%;color:rgba(255,255,255,.9);}
+  .about-copy .eyebrow{background:var(--green-pale);color:var(--green-mid);}
+  .about-copy h2{font-size:28px;font-weight:800;margin:10px 0 14px;}
+  .about-copy p{color:var(--muted);font-size:15px;margin-bottom:18px;}
+  .checklist li{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600;margin-bottom:10px;}
+  .checklist svg{width:20px;height:20px;color:var(--green-mid);flex-shrink:0;}
+  .signature{margin-top:20px;font-family:"Brush Script MT",cursive;font-size:24px;color:var(--green-mid);}
+
+  .contact-cta{background:linear-gradient(120deg,var(--green-dark),var(--green-mid));color:#fff;text-align:center;}
+  .contact-cta h2{font-size:28px;font-weight:800;margin-bottom:10px;}
+  .contact-cta p{color:#dcf0e2;margin-bottom:26px;}
+  .contact-cta .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .contact-cta .btn-solid{background:#fff;color:var(--green-dark);}
+  .contact-cta .btn-outline{border-color:rgba(255,255,255,.5);color:#fff;}
+  .contact-cta small{display:block;font-size:12px;color:#bcd9c6;margin-top:2px;}
+
+  footer{background:#0b2a19;color:#a9c9b5;padding:48px 0 0;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08);}
+  .foot-grid .logo{color:#fff;}
+  .foot-grid p{font-size:13.5px;margin-top:10px;line-height:1.6;}
+  .foot-grid h4{color:#fff;font-size:14px;margin-bottom:14px;}
+  .foot-grid li{font-size:13.5px;margin-bottom:8px;}
+  .socials{display:flex;gap:10px;margin-top:16px;}
+  .socials a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;}
+  .socials svg{width:16px;height:16px;color:#fff;}
+  .copyright{text-align:center;font-size:12.5px;padding:18px 0;color:#7f9c8b;}
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero h1{font-size:32px;}
+    .hero-visual{order:-1;}
+    nav.main{display:none;}
+    .service-grid{grid-template-columns:1fr;}
+    .guarantee .wrap{grid-template-columns:repeat(2,1fr);}
+    .about .wrap{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>📍 Bakı şəhəri, Azərbaycan</span>
+    <span>🕒 Hər gün 08:00 - 22:00</span>
+    <span>📞 055 822 44 39</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <div class="logo">
+      <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c2 3 4 5 4 8a4 4 0 1 1-8 0c0-3 2-5 4-8Z"/></svg>
+      <div>KOMBİ USTASI<small>Sabir Süleymanov</small></div>
+    </div>
+    <nav class="main">
+      <a href="#" class="active">Ana səhifə</a>
+      <a href="#xidmetler">Xidmətlər</a>
+      <a href="#haqqimizda">Haqqımızda</a>
+      <a href="#elaqe">Əlaqə</a>
+    </nav>
+    <a href="https://wa.me/994558224439" class="btn btn-solid">💬 WhatsApp</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">PEŞƏKAR XİDMƏT</span>
+      <h1>Kombi Ustası<br><span class="accent">Bakı</span></h1>
+      <p>Kombi və istilik sistemlərində peşəkar xidmət. Keyfiyyətli, dürüst və zəmanətli həllər təqdim edirik.</p>
+      <div class="actions">
+        <a href="tel:0558224439" class="btn btn-ghost" style="background:#fff;color:var(--green-dark);">📞 055 822 44 39</a>
+        <a href="https://wa.me/994558224439" class="btn btn-ghost">💬 WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="9" cy="9" r="1.6"/><circle cx="15" cy="9" r="1.6"/><path d="M7 14h10M7 17h6"/></svg>
+    </div>
+  </div>
+  <div class="feature-strip">
+    <div class="wrap">
+      <div class="feature-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"/></svg>
+        <div><b>Keyfiyyətli Xidmət</b><span>Zəmanətli və peşəkar iş</span></div>
+      </div>
+      <div class="feature-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div><b>Sürətli Müdaxilə</b><span>Qısa zamanda həll</span></div>
+      </div>
+      <div class="feature-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        <div><b>Təcrübəli Usta</b><span>Uzun illərin təcrübəsi</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="xidmetler">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">XİDMƏTLƏRİMİZ</span>
+      <h2>Göstərdiyimiz Xidmətlər</h2>
+    </div>
+    <div class="service-grid">
+      <div class="card">
+        <div class="icon-plate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/><path d="M6 6v3M10 6v3M14 6v3M18 6v3"/></svg></div>
+        <div class="card-body">
+          <div class="num"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></div>
+          <h3>Radiator Yuyulması</h3>
+          <p>Radiator sistemlərində yığılan pas, çirk və çöküntülərin xüsusi avadanlıqla yuyularaq təmizlənməsi.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon-plate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2c2 3 4 5 4 8a4 4 0 1 1-8 0c0-3 2-5 4-8Z"/></svg></div>
+        <div class="card-body">
+          <div class="num"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></div>
+          <h3>Kombi Yuyulması</h3>
+          <p>Kombinin daxili hissələrində yaranan kirəc və çirklərin təmizlənməsi ilə səmərəliliyin artırılması.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon-plate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4l-3-3-3 3Z"/></svg></div>
+        <div class="card-body">
+          <div class="num"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></div>
+          <h3>Kombi Təmiri</h3>
+          <p>Kombilərdə yaranan arızaların diaqnostikası və peşəkar şəkildə təmiri. Hər marka kombi üçün xidmət.</p>
+        </div>
+      </div>
+    </div>
+    <div class="center-btn"><a href="#xidmetler" class="btn btn-solid">Bütün Xidmətlər →</a></div>
+  </div>
+</section>
+
+<section class="guarantee">
+  <div class="wrap">
+    <div class="g-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+      <b>100% Zəmanət</b><span>Gördüyümüz işlərə zəmanət verilir</span>
+    </div>
+    <div class="g-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 11v8M7 11a3 3 0 0 1 3-3h6l-2-6 5 1 1 8h-2"/></svg>
+      <b>Müştəri Məmnuniyyəti</b><span>Sizin məmnuniyyətiniz bizim üçün önəmlidir</span>
+    </div>
+    <div class="g-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 7h11l2 3-2 3H7l-2-3 2-3Z"/><circle cx="8.5" cy="17.5" r="1.5"/></svg>
+      <b>Əlverişli Qiymətlər</b><span>Keyfiyyətli xidmət münasib qiymətlərlə</span>
+    </div>
+    <div class="g-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18v-4a8 8 0 0 1 16 0v4"/><path d="M4 18a2 2 0 0 0 2 2h1v-6H4v4Zm16 0a2 2 0 0 1-2 2h-1v-6h3v4Z"/></svg>
+      <b>24/7 Dəstək</b><span>Həftənin 7 günü sizin xidmətinizdəyik</span>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="haqqimizda">
+  <div class="wrap">
+    <div class="about-visual">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="9" cy="9" r="1.6"/><circle cx="15" cy="9" r="1.6"/><path d="M7 14h10M7 17h6"/></svg>
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow">HAQQIMIZDA</span>
+      <h2>Sabir Süleymanov</h2>
+      <p>Uzun illərin təcrübəsinə malik kombi ustasıyam. Bakı şəhəri üzrə kombi və istilik sistemləri sahəsində peşəkar xidmət göstərirəm. Hədəfim keyfiyyətli iş, dürüst münasibət və müştəri məmnuniyyətidir.</p>
+      <ul class="checklist">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>Peşəkar və təcrübəli usta</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>Keyfiyyətli avadanlıq və materiallardan istifadə</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>Dürüst və şəffaf xidmət</li>
+      </ul>
+      <div class="signature">Sabir Süleymanov</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-cta" id="elaqe">
+  <div class="wrap">
+    <h2>Bizimlə Əlaqə Saxlayın</h2>
+    <p>Kombi və istilik sistemləriniz üçün peşəkar dəstək alın.</p>
+    <div class="actions">
+      <a href="tel:0558224439" class="btn btn-solid">📞 055 822 44 39<br><small>Zəng et</small></a>
+      <a href="https://wa.me/994558224439" class="btn btn-outline">💬 WhatsApp<br><small>Mesaj yaz</small></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c2 3 4 5 4 8a4 4 0 1 1-8 0c0-3 2-5 4-8Z"/></svg>KOMBİ USTASI<small>Sabir Süleymanov</small></div>
+        <p>Bakı şəhəri üzrə kombi və istilik sistemləri üzrə peşəkar xidmət.</p>
+        <div class="socials">
+          <a href="https://wa.me/994558224439"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2Z"/></svg></a>
+          <a href="tel:0558224439"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.4.55 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .55 3.4 1 1 0 0 1-.25 1L6.6 10.8Z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="4"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>XİDMƏTLƏR</h4>
+        <ul><li>Radiator Yuyulması</li><li>Kombi Yuyulması</li><li>Kombi Təmiri</li></ul>
+      </div>
+      <div>
+        <h4>ƏLAQƏ</h4>
+        <ul><li>055 822 44 39</li><li>Bakı şəhəri</li><li>WhatsApp</li></ul>
+      </div>
+      <div>
+        <h4>İŞ SAATLARI</h4>
+        <ul><li>Hər gün</li><li>08:00 - 22:00</li></ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Kombi Ustası Bakı - Sabir Süleymanov. Bütün hüquqlar qorunur.</div>
+  </div>
+</footer>
+
+</body>
+  </html>
+  
